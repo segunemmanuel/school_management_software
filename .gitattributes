@@ -5,5 +5,5 @@
 *.blade.php linguist-detectable=false
 CHANGELOG.md export-ignore
 
-*.vue linguist-detectable=true
+*.js linguist-detectable=false
 
