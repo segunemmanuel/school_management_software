@@ -35,7 +35,16 @@ $data->email=$request->email;
 $data->password=bcrypt($request->password);
 $data->save();
 
-return redirect()->route('user.view');
+// Using toastr
+$notification=[
+    'message'=>'User inserted successfully',
+    'alert-type'=>'success'
+
+
+];
+return redirect()->route('user.view')->with($notification);
+
+
 
 
 
