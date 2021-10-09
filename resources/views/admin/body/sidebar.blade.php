@@ -66,12 +66,15 @@ $route = Route::current()->getName();
 
           <ul class="treeview-menu">
             <li><a href="{{route('student.class.view')}}"><i class="ti-more"></i>Student class</a></li>
+            <li><a href="{{route('student.year.view')}}"><i class="ti-more"></i>Student year</a></li>
+            <li><a href="{{route('student.group.view')}}"><i class="ti-more"></i>Student groups</a></li>
           </ul>
 
-          <ul class="treeview-menu">
-            <li><a href="{{route('student.year.view')}}"><i class="ti-more"></i>Student year</a></li>
-          </ul>
+        
+          
         </li>
+  
+      </li>
 
 
 
