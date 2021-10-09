@@ -1,3 +1,7 @@
+@php
+$prefix= Request::route()->getprefix();
+$route = Route::current()->getName();
+@endphp
 <aside class="main-sidebar">
     <!-- sidebar-->
     <section class="sidebar">	
@@ -13,18 +17,15 @@
 				</a>
 			</div>
         </div>
-      
       <!-- sidebar menu-->
       <ul class="sidebar-menu" data-widget="tree">  
-		  
-		<li>
-          <a href="index.html">
+		<li class="{{ ($route=='dashboard') ? 'active': '' }}">
+          <a href="{{route('dashboard')}}">
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>
         </li>  
-		
-        <li class="treeview">
+        <li class="treeview  {{ ($prefix =='/users') ? 'active': '' }}">
           <a href="#">
             <i data-feather="message-circle"></i>
             <span>Manage users</span>
@@ -38,7 +39,7 @@
           </ul>
         </li> 
 		  
-        <li class="treeview">
+        <li class="treeview {{ ($prefix =='/profiles')?'active': ''}}">
           <a href="#">
             <i data-feather="mail"></i> <span>Manage profile</span>
             <span class="pull-right-container">
@@ -51,7 +52,25 @@
             <li><a href="{{route('password.view')}}"><i class="ti-more"></i>Change password</a></li>
           </ul>
         </li>
-		  
+        
+
+
+
+        <li class="treeview {{ ($prefix =='/setups')?'active': ''}}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Setup Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+
+          <ul class="treeview-menu">
+            <li><a href="{{route('student.class.view')}}"><i class="ti-more"></i>Student class</a></li>
+          </ul>
+        </li>
+
+
+
 		 
         <li class="header nav-small-cap">User Interface</li>
 		  
