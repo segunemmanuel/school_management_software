@@ -18,38 +18,7 @@
                <form novalidate="" method="POST" action="{{ route('users.update', $editData->id) }}">
                 @csrf
                  <div class="row">
-                   <div class="col-12">	
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <h5>Select user role <span class="text-danger">*</span></h5>
-                                <div class="controls">
-                                    <select name="usertype" id="select"  aria-invalid="false" required="" class="form-control">
-                                        <option value="" selected="" disabled="">Select role</option>
-                                        <option value="admin" {{$editData->usertype=="admin"? "selected": "" }}  >Admin</option>
-                                        <option value="user"{{$editData->usertype=="user"? "selected": "" }}>User</option>
-
-                                    </select>
-                                <div class="help-block"></div></div>
-                            </div> 
-                            {{-- endcol --}}
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <h5>Username<span class="text-danger">*</span></h5>
-                                <div class="controls">
-                <input type="text" name="name" value="{{$editData->name}}"class="form-control" required="">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    
                    
-                   </div>
-
 
                    <div class="row">
                     <div class="col-md-6">
@@ -65,10 +34,44 @@
 
 
                 
+
+
+                    
                
                </div>
 
 
+
+               <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <h5>Select user role <span class="text-danger">*</span></h5>
+                        <div class="controls">
+                            <select name="usertype" id="select"  aria-invalid="false" required="" class="form-control">
+                                <option value="" selected="" disabled="">Select role</option>
+                                <option value="admin" {{$editData->usertype=="admin"? "selected": "" }}  >Admin</option>
+                                <option value="user"{{$editData->usertype=="user"? "selected": "" }}>User</option>
+
+                            </select>
+                        <div class="help-block"></div></div>
+                    </div> 
+                    {{-- endcol --}}
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <h5>Username<span class="text-danger">*</span></h5>
+                        <div class="controls">
+        <input type="text" name="name" value="{{$editData->name}}"class="form-control" required="">
+                    </div>
+
+                </div>
+            </div>
+
+            
+           
+           </div>
 
 
 
