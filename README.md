@@ -2,12 +2,13 @@
 
 Clone the repository
 
-git clone gh repo clone segunemmanuel/school_management_software
+
+    git clone gh repo clone segunemmanuel/school_management_software
 
 Switch to the repo folder
 
     cd school_management_software
-    
+
 Install all the dependencies using composer
 
     composer install
