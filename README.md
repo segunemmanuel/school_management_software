@@ -2,12 +2,12 @@
 
 Clone the repository
 
-    git clone git@github.com:gothinkster/laravel-realworld-example-app.git
+git clone gh repo clone segunemmanuel/school_management_software
 
 Switch to the repo folder
 
-    cd laravel-realworld-example-app
-
+    cd school_management_software
+    
 Install all the dependencies using composer
 
     composer install
