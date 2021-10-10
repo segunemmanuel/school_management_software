@@ -101,8 +101,14 @@ Route::get('/fee/category/delete/{id}', [FeeCategoryController::class,'DeleteFee
 
 //Fee amount routes
 Route::get('/fee/amount/view', [FeeAmountController::class,'ViewFeeAmount'])->name('fee.amount.view');
-
 Route::get('/fee/amount/add', [FeeAmountController::class,'AddFeeAmount'])->name('fee.amount.add');
+Route::post('/fee/amount/store', [FeeAmountController::class,'StoreFeeAmount'])->name('store.fee.amount');
+Route::get('/fee/amount/edit/{fee_category_id}', [FeeAmountController::class,'EditFeeAmount'])->name('fee.amount.edit');
+Route::post('/fee/amount/update/{fee_category_id}', [FeeAmountController::class,'UpdateFeeAmount'])->name('update.fee.amount');
+Route::get('/fee/amount/details/{fee_category_id}', [FeeAmountController::class,'DetailFeeAmount'])->name('fee.amount.details');
+
+
+
 
 
 
