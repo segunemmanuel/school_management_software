@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Setup\FeeCategoryController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
@@ -87,11 +88,13 @@ Route::get('/student/shift/edit/{id}', [StudentShiftController::class,'EditShift
 Route::post('/student/shift/update/{id}', [StudentShiftController::class,'UpdateShift'])->name('update.student.shift');
 Route::get('/student/shift/delete/{id}', [StudentShiftController::class,'DeleteShift'])->name('student.shift.delete');
 
-
-
-
-
-
+// Fee categories 
+Route::get('/fee/category/view', [FeeCategoryController::class,'ViewFeeCat'])->name('fee.category.view');
+Route::get('/fee/category/add', [FeeCategoryController::class,'AddFeeCat'])->name('fee.category.add');
+Route::post('/fee/category/store', [FeeCategoryController::class,'StoreFeeCat'])->name('store.fee.category');
+Route::get('/fee/category/edit/{id}', [FeeCategoryController::class,'EditFeeCat'])->name('fee.category.edit');
+Route::post('/fee/category/update/{id}', [FeeCategoryController::class,'UpdateFeeCat'])->name('update.category.fee');
+Route::get('/fee/category/delete/{id}', [FeeCategoryController::class,'DeleteFeeCat'])->name('fee.category.delete');
 
 
 
