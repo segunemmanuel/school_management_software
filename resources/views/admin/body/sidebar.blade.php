@@ -68,6 +68,8 @@ $route = Route::current()->getName();
             <li><a href="{{route('student.class.view')}}"><i class="ti-more"></i>Student class</a></li>
             <li><a href="{{route('student.year.view')}}"><i class="ti-more"></i>Student year</a></li>
             <li><a href="{{route('student.group.view')}}"><i class="ti-more"></i>Student groups</a></li>
+            <li><a href="{{route('student.shift.view')}}"><i class="ti-more"></i>Student shift</a></li>
+            
           </ul>
 
         
