@@ -28,9 +28,9 @@
                        @foreach ($allData as  $key=>$assign )
                        <tr>
                            <td>{{$key+1}}</td>
-                           <td>{{$assign->class_id}}</td>
+                           <td>{{$assign['student_class']['name']}}</td>
                            <td>
-<a href="" class="btn btn-info">Edit</a>
+<a href="{{route('assign.subject.edit',$assign->class_id)}}" class="btn btn-info">Edit</a>
 <a href=""  class="btn btn-secondary">Details</a>
                            </td>
                        </tr>

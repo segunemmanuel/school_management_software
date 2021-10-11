@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Backend\Setup;
-
 use App\Models\AssignSubject;
 use App\Http\Controllers\Controller;
 use App\Models\SchoolSubject;
@@ -15,7 +13,7 @@ class AssignSubjectController extends Controller
 
     public function ViewAssignSubject(){
         $data['allData']=AssignSubject::all();
-        // $data['allData']=FeeCategoryAmount::select('fee_category_id')->groupBy('fee_category_id')->get();
+        $data['allData']=AssignSubject::select('class_id')->groupBy('class_id')->get();
         return view('backend.setup.assign_subject.view_assign_subject',$data);
     }
 
@@ -40,15 +38,41 @@ class AssignSubjectController extends Controller
         $assign_subject->pass_mark=$request->pass_mark[$i];
         $assign_subject->subjective_mark=$request->subjective_mark[$i];
         $assign_subject->save();
-
     }
+
         $notification=[
             'message'=>'Subject assigned successfully!',
             'alert-type'=>'success'
         ];
         return redirect()->route('assign.subject.view')->with($notification);
         }
-        
         }
 
+
+
+
+
+
+        public function EditAssignSubject($class_id){
+            $data['editData']= AssignSubject::where('class_id',$class_id)->orderBy('subject_id','asc')->get();
+        // dd($data['editData']->toArray());
+        $data['subjects']=SchoolSubject::all();
+        $data['classes']=StudentClass::all();
+
+        return view('backend.setup.assign_subject.edit_assign_subject',$data);
+
+        
+        }
+        
+
+
+
+
+
+
+
+
+
+
+        
 }
