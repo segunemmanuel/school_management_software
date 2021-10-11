@@ -17,3 +17,5 @@ yarn-error.log
 /.vscode
 public/assets/
 public/images/
+*.jpeg
+*.png

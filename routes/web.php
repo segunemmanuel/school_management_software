@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\FeeCategoryController;
+use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
@@ -117,6 +119,23 @@ Route::post('/exam/type/store',[ExamTypeController::class,'StoreExamType'])->nam
 Route::get('/exam/type/edit/{id}',[ExamTypeController::class,'EditExamType'])->name('exam.type.edit');
 Route::post('/exam/type/update/{id}',[ExamTypeController::class,'UpdateExamType'])->name('update.exam.type');
 Route::get('/exam/type/delete/{id}',[ExamTypeController::class,'DeleteExamType'])->name('exam.type.delete');
+
+
+// School subjects routes
+Route::get('/school/subject/view',[SchoolSubjectController::class,'ViewSubject'])->name('school.subject.view');
+Route::get('/school/subject/add',[SchoolSubjectController::class,'AddSubject'])->name('school.subject.add');
+Route::post('/school/subject/add',[SchoolSubjectController::class,'StoreSubject'])->name('school.subject.store');
+Route::get('/school/subject/edit/{id}',[SchoolSubjectController::class,'EditSubject'])->name('school.subject.edit');
+Route::post('/school/subject/update/{id}',[SchoolSubjectController::class,'UpdateSubject'])->name('update.school.subject');
+Route::get('/school/subject/delete/{id}',[SchoolSubjectController::class,'DeleteSubject'])->name('school.subject.delete');
+
+
+
+// Assinging subject routes
+Route::get('/assign/subject/view',[AssignSubjectController::class,'ViewAssignSubject'])->name('assign.subject.view');
+Route::get('/assign/subject/add',[AssignSubjectController::class,'AddAssignSubject'])->name('assign.subject.add');
+ 
+
 
 
 
