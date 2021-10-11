@@ -16,6 +16,16 @@ class AssignSubject extends Model
         // Join
                 return $this->belongsTo(StudentClass::class, 'class_id','id');
         
+
             }
+
+
+            public function school_subject(){
+                // Join
+                        return $this->belongsTo(StudentClass::class, 'subject_id','id');
+                
+                    }
+
+
 }
 

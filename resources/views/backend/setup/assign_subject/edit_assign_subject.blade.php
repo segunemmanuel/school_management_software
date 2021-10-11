@@ -20,7 +20,7 @@
 			  <div class="row">
 				<div class="col">
 
- <form method="post" action="#">
+ <form method="post" action="{{route('update.assign.subject',$editData[0]->class_id)}}">
 	 	@csrf
 					  <div class="row">
 						<div class="col-12">

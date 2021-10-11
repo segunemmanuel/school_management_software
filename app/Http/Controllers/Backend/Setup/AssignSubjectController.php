@@ -67,12 +67,54 @@ class AssignSubjectController extends Controller
 
 
 
-
-
-
-
-
-
-
+        public function UpdateAssignSubject(Request $request,$class_id){
+            if($request->subject_id==NULL){
+                $notification=[
+                    'message'=>'No class selected',
+                    'alert-type'=>'error'
+                ];
+                return redirect()->route('assign.subject.edit',$class_id)->with($notification);
+            }
+            else{
+          
+                $countClass=count($request->subject_id);
+                // Count to see if there are any clases 
+                AssignSubject::where('class_id',$class_id)->delete();
+                for ($i=0; $i < $countClass; $i++) { 
+                    $assign_subject=new AssignSubject();
+                    $assign_subject->class_id=$request->class_id;
+                    $assign_subject->subject_id=$request->subject_id[$i];
+                    $assign_subject->full_mark=$request->full_mark[$i];
+                    $assign_subject->pass_mark=$request->pass_mark[$i];
+                    $assign_subject->subjective_mark=$request->subjective_mark[$i];
+                    $assign_subject->save();
+                }
+            }
+                $notification=[
+                    'message'=>'Subject assign updated successfully!',
+                    'alert-type'=>'success'
+                ];
+                return redirect()->route('assign.subject.view')->with($notification);
         
-}
+            }
+
+
+
+
+            public function DetailsAssignSubject($class_id){
+                $data['detailsData']= AssignSubject::where('class_id',$class_id)->orderBy('subject_id','asc')->get();
+                return view('backend.setup.assign_subject.details_assign_subject', $data);
+                
+            
+            
+            }
+
+
+
+
+
+
+
+        }
+
+
