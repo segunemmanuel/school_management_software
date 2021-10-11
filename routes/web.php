@@ -134,6 +134,8 @@ Route::get('/school/subject/delete/{id}',[SchoolSubjectController::class,'Delete
 // Assinging subject routes
 Route::get('/assign/subject/view',[AssignSubjectController::class,'ViewAssignSubject'])->name('assign.subject.view');
 Route::get('/assign/subject/add',[AssignSubjectController::class,'AddAssignSubject'])->name('assign.subject.add');
+Route::post('/assign/subject/store',[AssignSubjectController::class,'StoreAssignSubject'])->name('store.assign.subject');
+
  
 
 

@@ -5,8 +5,6 @@
  <div class="content-wrapper">
 	  <div class="container-full">
 		<!-- Content Header (Page header) -->
-	
-
 <section class="content">
 
 		 <!-- Basic Forms -->
@@ -20,7 +18,7 @@
 			  <div class="row">
 				<div class="col">
 
-	 <form method="post" action="">
+	 <form method="post" action="{{route('store.assign.subject')}}">
 	 	@csrf
 					  <div class="row">
 						<div class="col-12">
