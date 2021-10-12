@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
@@ -10,6 +9,7 @@ use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
+use App\Http\Controllers\Backend\Setup\Students\StudentRegController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\UserController;
@@ -150,18 +150,13 @@ Route::post('/designation/update/{id}',[DesignationController::class,'UpdateDesi
 Route::get('/designation/delete/{id}',[DesignationController::class,'DeleteDesignation'])->name('delete.designation');
 
 
-
-
-
- 
-
-
-
-
-
-
-
-
 });
 
+
+
+Route::prefix('students')->group(function(){
+    Route::get('/student/registration/view',[StudentClassController::class,'ViewStudent'])->name('student.registration.view');
+
+    
+});
 
