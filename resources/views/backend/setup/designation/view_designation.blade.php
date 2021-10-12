@@ -10,8 +10,8 @@
     <div class="col-12">
         <div class="box">
            <div class="box-header with-border">
-             <h3 class="box-title">Designation list</h3>
-             <a href="{{ route('school.subject.add') }}" style="float:right" class="mb-5 btn btn-rounded btn-success">Add school subject</a>
+             <h3 class="box-title">School subject list</h3>
+             <a href="{{ route('designation.add') }}" style="float:right" class="mb-5 btn btn-rounded btn-success">Add designation</a>
            </div>
            <!-- /.box-header -->
            <div class="box-body">
@@ -25,13 +25,13 @@
                        </tr>
                    </thead>
                    <tbody>
-                       @foreach ($allData as  $key=>$subject )
+                       @foreach ($allData as  $key=>$designation )
                        <tr>
                            <td>{{ $key+1 }}</td>
-                           <td>{{ $subject->name }}</td>
+                           <td>{{ $designation->name }}</td>
                            <td>
-<a href="{{route('school.subject.edit', $subject->id)}}"class="btn btn-info">Edit</a>
-<a href="{{route('school.subject.delete',$subject->id)}}" id="delete" class="btn btn-danger">Delete</a>
+<a href="{{route('designation.edit', $designation->id)}}" class="btn btn-info">Edit</a>
+<a href="{{route('delete.designation',$designation->id)}}" id="delete" class="btn btn-danger">Delete</a>
                            </td>
                        </tr>
                        @endforeach

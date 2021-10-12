@@ -11,9 +11,9 @@ class AssignSubject extends Model
 
 
 
-
     public function student_class(){
-        // Join
+                // Joining of tables like we do in pcdr
+
                 return $this->belongsTo(StudentClass::class, 'class_id','id');
         
 
@@ -21,8 +21,8 @@ class AssignSubject extends Model
 
 
             public function school_subject(){
-                // Join
-                        return $this->belongsTo(StudentClass::class, 'subject_id','id');
+                // Joining of tables like we do in pcdr
+                        return $this->belongsTo(SchoolSubject::class, 'subject_id','id');
                 
                     }
 
