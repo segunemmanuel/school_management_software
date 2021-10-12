@@ -155,7 +155,7 @@ Route::get('/designation/delete/{id}',[DesignationController::class,'DeleteDesig
 
 
 Route::prefix('students')->group(function(){
-    Route::get('/student/registration/view',[StudentClassController::class,'ViewStudent'])->name('student.registration.view');
+    Route::get('/student/registration/view',[StudentRegController::class,'ViewStudentReg'])->name('student.registration.view');
 
     
 });

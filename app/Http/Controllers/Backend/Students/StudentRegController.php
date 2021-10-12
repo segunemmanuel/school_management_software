@@ -8,4 +8,9 @@ use Illuminate\Http\Request;
 class StudentRegController extends Controller
 {
     //
+
+
+    public function ViewStudentReg(){
+        
+    }
 }

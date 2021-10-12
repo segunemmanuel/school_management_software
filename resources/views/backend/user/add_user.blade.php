@@ -26,11 +26,10 @@
                             <div class="form-group">
                                 <h5>Select user role <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <select name="usertype" id="select" required="" aria-invalid="false" required="" class="form-control">
+                                    <select name="role" id="select" required="" aria-invalid="false" required="" class="form-control">
                                         <option value="" selected="" disabled="">Select role</option>
                                         <option value="admin">Admin</option>
-                                        <option value="user">User</option>
-
+                                        <option value="operator">Operator</option>
                                     </select>
                                 <div class="help-block"></div></div>
                             </div> 
@@ -65,16 +64,6 @@
                         {{-- endcol --}}
                     </div>
 
-                    <div class="col-md-6">
-
-                        <div class="form-group">
-                            <h5>User password<span class="text-danger">*</span></h5>
-                            <div class="controls">
-                                <input type="password" name="password" class="form-control" required="">
-                        </div>
-
-                    </div>
-                </div>
 
                 
                
