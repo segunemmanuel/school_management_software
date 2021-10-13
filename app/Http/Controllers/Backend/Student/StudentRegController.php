@@ -31,4 +31,11 @@ $data['shifts']=StudentShift::all();
 return view('backend.student.student_reg.student_add',$data);
 
 }
+
+
+
+public function StoreStudentReg(Request $request){
+
+    
+}
 }

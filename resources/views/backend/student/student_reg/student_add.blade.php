@@ -18,7 +18,7 @@
 <div class="box-body">
 <div class="row">
 <div class="col">
-<form novalidate="">
+    <form method="post" action="{{route('student.registration.store')}}" enctype="multipart/form-data">
 @csrf
 <div class="row">
 <div class="col-12">
@@ -315,27 +315,6 @@
     
     {{-- end of 5th  row --}}
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 </div>
