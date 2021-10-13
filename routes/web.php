@@ -9,12 +9,12 @@ use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
-use App\Http\Controllers\Backend\Setup\Students\StudentRegController;
+use App\Http\Controllers\Backend\Student\StudentRegController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
-
+// StudentYearController
 
 Route::get('/', function () {
 return view('auth.login');
@@ -155,7 +155,9 @@ Route::get('/designation/delete/{id}',[DesignationController::class,'DeleteDesig
 
 
 Route::prefix('students')->group(function(){
-    Route::get('/student/registration/view',[StudentRegController::class,'ViewStudentReg'])->name('student.registration.view');
+    Route::get('/reg/view',[StudentRegController::class,'ViewStudentReg'])->name('student.registration.view');
+    Route::get('/reg/add',[StudentRegController::class,'AddStudentReg'])->name('student.registration.add');
+
 
     
 });
