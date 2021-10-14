@@ -76,10 +76,15 @@ if($studentId < 10) {
             }
     }
 
+$final_id_no=$checkYear.$id_no;
+$user=new User();
+$code=rand(0000,9999);
+$user->id_no=$final_id_no;
+$user->password=bcrypt($code);
+ 
 
 
 
-    
 });
 }
 }
