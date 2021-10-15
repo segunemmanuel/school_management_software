@@ -40,7 +40,7 @@ class ProfileController extends Controller
         $data->address=$request->address;
         $data->image=$request->image;
         
-        
+        // inserting images
         
         if($request->file('image')){
             $file=$request->file('image');

@@ -153,7 +153,7 @@ Route::get('/designation/delete/{id}',[DesignationController::class,'DeleteDesig
 });
 
 
-
+ 
 Route::prefix('students')->group(function(){
     Route::get('/reg/view',[StudentRegController::class,'ViewStudentReg'])->name('student.registration.view');
     Route::get('/reg/add',[StudentRegController::class,'AddStudentReg'])->name('student.registration.add');

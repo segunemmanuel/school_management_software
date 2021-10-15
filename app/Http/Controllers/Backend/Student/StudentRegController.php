@@ -74,14 +74,47 @@ if($studentId < 10) {
                 $id_no='0'.$studentId;
             
             }
-    }
+    } 
 
 $final_id_no=$checkYear.$id_no;
 $user=new User();
 $code=rand(0000,9999);
 $user->id_no=$final_id_no;
 $user->password=bcrypt($code);
- 
+$user->usertype='students';
+$user->code=$code;
+$user->name=$request->name;
+$user->fname=$request->fname;
+$user->mname=$request->mname;
+$user->mobile=$request->mobile;
+$user->address=$request->address;
+$user->gender=$request->gender;
+$user->religion=$request->religion;
+$user->dob=$request->date('Y-m-d',strtotime($request->dob));
+
+
+if($request->file('image')){
+    $file=$request->file('image');
+    $filename=date('YmdHi').$file->getClientOriginalName();
+    $file->move(public_path('upload/student_images'), $filename);
+    $data['image']=$filename;
+}
+$user->save();
+
+// Assigning student ID using 
+$assign_student= new AssignStudent();
+$assign_student->student_id=$user->id;
+$assign_student->year_id->student_id=$request->year_id;
+$assign_student->class_id->student_id=$request->class_id;
+$assign_student->group_id->student_id=$request->group_id;
+$assign_student->shift_id->student_id=$request->shift_id;
+
+
+
+
+
+
+
 
 
 
