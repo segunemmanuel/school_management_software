@@ -12,6 +12,7 @@ use App\Models\StudentClass;
 use App\Models\StudentGroup;
 use App\Models\StudentShift;
 use App\Models\StudentYear;
+use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -108,6 +109,17 @@ $assign_student->year_id->student_id=$request->year_id;
 $assign_student->class_id->student_id=$request->class_id;
 $assign_student->group_id->student_id=$request->group_id;
 $assign_student->shift_id->student_id=$request->shift_id;
+$assign_student->save();
+
+
+// Assigning discounts
+$discount_student= new DiscountStudent();
+$discount_student->assign_student_id=$assign_student->id;
+$discount_student->fee_category_id=1;
+$discount_student->discount=$request->discount;
+$discount_student->save();
+
+
 
 
 
