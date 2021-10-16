@@ -282,7 +282,7 @@
                     <option value="" selected="" disabled="">Select shift</option>
                     @foreach ($shifts as $shift)
                         
-         <option value="{{$shift->id}}">{{$year->name}}</option>
+         <option value="{{$shift->id}}">{{$shift->name}}</option>
          @endforeach
 
                 </select>

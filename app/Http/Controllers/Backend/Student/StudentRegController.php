@@ -14,14 +14,17 @@ use App\Models\StudentShift;
 use App\Models\StudentYear;
 use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 
 
 class StudentRegController extends Controller
 {
 public function ViewStudentReg(){
 $data['allData']=AssignStudent::all();
+
+$data['years']=StudentYear::all();
+$data['classes']=StudentClass::all();
 
         return view('backend.student.student_reg.student_view',$data);
 
@@ -83,6 +86,7 @@ $code=rand(0000,9999);
 $user->id_no=$final_id_no;
 $user->password=bcrypt($code);
 $user->usertype='students';
+// $user->email='fddf';
 $user->code=$code;
 $user->name=$request->name;
 $user->fname=$request->fname;
@@ -91,28 +95,29 @@ $user->mobile=$request->mobile;
 $user->address=$request->address;
 $user->gender=$request->gender;
 $user->religion=$request->religion;
-$user->dob=$request->date('Y-m-d',strtotime($request->dob));
+// $user->dob=$request->date('Y-m-d',strtotime($request->dob));
+$user->dob=$request->input('dob');
 
 
 if($request->file('image')){
     $file=$request->file('image');
     $filename=date('YmdHi').$file->getClientOriginalName();
     $file->move(public_path('upload/student_images'), $filename);
-    $data['image']=$filename;
+    $user['image']=$filename;
 }
 $user->save();
 
 // Assigning student ID using 
 $assign_student= new AssignStudent();
 $assign_student->student_id=$user->id;
-$assign_student->year_id->student_id=$request->year_id;
-$assign_student->class_id->student_id=$request->class_id;
-$assign_student->group_id->student_id=$request->group_id;
-$assign_student->shift_id->student_id=$request->shift_id;
+$assign_student->year_id=$request->year_id;
+$assign_student->class_id=$request->class_id;
+$assign_student->group_id=$request->group_id;
+$assign_student->shift_id=$request->shift_id;
 $assign_student->save();
 
 
-// Assigning discounts
+// Assigning discounts into discounts DB;
 $discount_student= new DiscountStudent();
 $discount_student->assign_student_id=$assign_student->id;
 $discount_student->fee_category_id=1;
@@ -121,15 +126,17 @@ $discount_student->save();
 
 
 
-
-
-
-
-
-
-
-
-
 });
+
+$notification=[
+    'message'=>'Student added successfully',
+    'alert-type'=>'success'
+
+
+];
+return redirect()->route('student.registration.view')->with($notification);
+
+
+
 }
 }
