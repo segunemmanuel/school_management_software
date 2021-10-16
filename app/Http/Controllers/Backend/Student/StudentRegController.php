@@ -123,7 +123,7 @@ $assign_student->save();
 // Assigning discounts into discounts DB;
 $discount_student= new DiscountStudent();
 $discount_student->assign_student_id=$assign_student->id;
-$discount_student->fee_category_id=1;
+$discount_student->fee_category_id='1';
 $discount_student->discount=$request->discount;
 $discount_student->save();
 
