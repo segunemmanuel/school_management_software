@@ -26,8 +26,6 @@ return view('admin.index');
 
 // Admin controllers
 Route::get('/admin/logout',[AdminController::class,'Logout'])->name('admin.logout');
-  
-
 
 // User management routes
 // Group routes

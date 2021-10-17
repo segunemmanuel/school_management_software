@@ -5,6 +5,8 @@
       <!-- Content Header (Page header) -->
 <section class="content">
 <div class="row">
+  <div class="col-12">
+
   <div class="box bb-3 border-warning">
     <div class="box-header">
     <h4 class="box-title">Student <strong>search</strong></h4>
@@ -21,8 +23,7 @@
          <select name="year_id" class="form-control">
                 <option value=""   selected="" disabled="">Select year</option>
                 @foreach ($years as $year)
-                    
-     <option value="{{$year->id}}">{{$year->name}}</option>
+           <option value="{{$year->id}}" {{ (@year_id==$year->id )? "selected" :"" }}>{{$year->name}}</option>
      @endforeach
 
             </select>
@@ -38,7 +39,7 @@
                 <option value="" selected="" disabled="">Select class</option>
                 @foreach ($classes as $class)
                     
-                <option value="{{$class->id}}">{{$class->name}}</option>
+                <option value="{{$class->id}}"   {{ (@class_id==$class->id )? "selected" :"" }} >{{$class->name}}</option>
                 @endforeach
                  
             </select>
@@ -54,9 +55,10 @@
 </form>
     </div>
   </div>
+</div>
 
 
-    <div class="col-12">
+<div class="col-12">
         <div class="box">
            <div class="box-header with-border">
              <h3 class="box-title">Students list</h3>

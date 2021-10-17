@@ -12,7 +12,7 @@ use App\Models\StudentClass;
 use App\Models\StudentGroup;
 use App\Models\StudentShift;
 use App\Models\StudentYear;
-use Illuminate\Foundation\Events\DiscoverEvents;
+// use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Http\Request;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,15 +20,20 @@ use Illuminate\Support\Facades\DB;
 
 class StudentRegController extends Controller
 {
+
+
+    
 public function ViewStudentReg(){
 
     $data['years'] = StudentYear::all();
     $data['classes'] = StudentClass::all();
+    // bug here
 
-    $data['year_id'] = StudentYear::orderBy('id','DESC')->first()->id;
-    $data['class_id'] = StudentClass::orderBy('id','DESC')->first()->id;
+    $data['year_id'] = StudentYear::orderBy('id','desc')->first()->id;
+    $data['class_id'] = StudentClass::orderBy('id','desc')->first()->id;
 
-$data['allData'] = AssignStudent::where('year_id',$data['year_id'])->where('class_id',$data['class_id'])->get();
+$data['allData'] = AssignStudent::where('year_id', $data['year_id'])->where('class_id', $data['class_id'])->get();
+// dd($data['class_id']);
 return view('backend.student.student_reg.student_view',$data);
 
 }
@@ -47,7 +52,8 @@ return view('backend.student.student_reg.student_add',$data);
 
 public function StoreStudentReg(Request $request){
 DB::transaction(function () use($request) {
-$checkYear=StudentYear::find($request->year_id)->name;
+// $checkYear=StudentYear::find($request->year_id)->name;
+$checkYear = StudentYear::find($request->year_id)->name;
 $student=User::where('usertype','students')->orderBy('id','DESC')->first();
 
     if($student==null){
