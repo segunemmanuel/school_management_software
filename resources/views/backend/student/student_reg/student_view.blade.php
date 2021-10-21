@@ -56,8 +56,6 @@
     </div>
   </div>
 </div>
-
-
 <div class="col-12">
         <div class="box">
            <div class="box-header with-border">
@@ -70,9 +68,18 @@
                  <table id="example1" class="table table-bordered table-striped">
                    <thead>
                        <tr>
-                           <th width="5%">SL</th>
-                           <th>Name</th>
-                           <th>ID no</th>
+                        <th width="5%">SL</th>  
+                        <th>Name</th>
+                        <th>ID No</th>
+                        <th>Roll</th>
+                        <th>Year</th>
+                        <th>Class</th>
+                        <th>Image</th>
+                        @if(Auth::user()->role == "admin")
+                        <th>Code</th>
+                         @endif
+                        <th width="25%">Action</th>
+
 
                            <th width="25%">Action</th>
                        </tr>
