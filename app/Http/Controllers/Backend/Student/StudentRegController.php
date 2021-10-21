@@ -144,7 +144,34 @@ $notification=[
 ];
 return redirect()->route('student.registration.view')->with($notification);
 
+}
 
+
+public function StudentClassYearWise(Request $request){
+    $data['years'] = StudentYear::all();
+    $data['classes'] = StudentClass::all();
+
+    $data['year_id'] = $request->year_id;
+    $data['class_id'] = $request->class_id;
+
+$data['allData'] = AssignStudent::where('year_id', $request->year_id)->where('class_id', $request->class_id)->get();
+return view('backend.student.student_reg.student_view', $data);
+}
+
+
+
+public function StudentRegEdit($student_id){
+
+    $data['classes']=StudentClass::all();
+$data['groups']=StudentGroup::all();
+$data['years']=StudentYear::all();
+$data['shifts']=StudentShift::all();
+$data['editData']=AssignStudent::with(['student','discount'])->where('student_id',  $student_id)->first();
+// dd($data['editData']->toArray());
+
+return view('backend.student.student_reg.student_edit',$data);
 
 }
+
+
 }
