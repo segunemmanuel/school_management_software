@@ -8,7 +8,7 @@
 <!-- Basic Forms -->
 <div class="box">
 <div class="box-header with-border">
-<h4 class="box-title">Edit Student </h4>
+<h4 class="box-title">Promote student </h4>
 </div>
 
  
@@ -18,7 +18,7 @@
 <div class="box-body">
 <div class="row">
 <div class="col">
-    <form method="POST" action="{{route('student.registration.update',$editData->student_id )}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route('promotion.student.registration',$editData->student_id )}}" enctype="multipart/form-data">
 @csrf
 <input type="hidden" name="id" value="{{$editData->id}}">
 
@@ -232,7 +232,7 @@
          <select name="class_id"  required="" class="form-control">
                 <option value="" selected="" disabled="">Select Class</option>
                  @foreach($classes as $class)
-                <option value="{{ $class->id }}" {{ ($editData->class_id == $class->id) ? "selected" :"" }} >{{ $class->name }}</option>
+                <option value="{{ $class->id }}" {{ ($editData->class_id == $class->id)? "selected":"" }} >{{ $class->name }}</option>
                  @endforeach
                  
             </select>
@@ -318,7 +318,7 @@
 </div>
 </div>
 <div class="text-xs-right">
-<input type="submit" class="mb-5 btn btn-rounded btn-info" value="Update">
+<input type="submit" class="mb-5 btn btn-rounded btn-info" value="Promote">
 
 </div>
 </form>

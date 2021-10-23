@@ -34,10 +34,7 @@ class AssignStudent extends Model
 
     }
 
-    public function shift(){
-        return $this->belongsTo(StudentShift::class,'id','id');
-
-    }
+ 
 
     
 }
