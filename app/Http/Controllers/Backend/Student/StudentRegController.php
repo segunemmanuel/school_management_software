@@ -5,13 +5,14 @@ use Illuminate\Http\Request;
 use App\Models\AssignStudent;
 use App\Models\User;
 use App\Models\DiscountStudent;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\StudentYear;
 use App\Models\StudentClass;
 use App\Models\StudentGroup;
 use App\Models\StudentShift;
 
-use DB;
+// use DB;
 
 class StudentRegController extends Controller
 {
@@ -23,8 +24,8 @@ public function ViewStudentReg(){
     $data['years'] = StudentYear::all();
     $data['classes'] = StudentClass::all();
     // bug here
-    $data['year_id'] = StudentYear::orderBy('id')->first()->id;
-    $data['class_id'] = StudentClass::orderBy('id')->first()->id;
+    $data['year_id'] = StudentYear::orderBy('id','ASC')->first()->id;
+    $data['class_id'] = StudentClass::orderBy('id', 'ASC')->first()->id;
 
 $data['allData'] = AssignStudent::where('year_id', $data['year_id'])->where('class_id', $data['class_id'])->get();
 
@@ -48,7 +49,7 @@ public function StoreStudentReg(Request $request){
 
 DB::transaction(function() use($request){
     	$checkYear = StudentYear::find($request->year_id)->name;
-    	$student = User::where('usertype','Student')->orderBy('id','DESC')->first();
+    	$student = User::where('usertype','Students')->orderBy('id','DESC')->first();
 
     	if ($student == null) {
     		$firstReg = 0;
@@ -61,7 +62,7 @@ DB::transaction(function() use($request){
     			$id_no = '0'.$studentId;
     		}
     	}else{
-     $student = User::where('usertype','Student')->orderBy('id','DESC')->first()->id;
+     $student = User::where('usertype','Students')->orderBy('id','DESC')->first()->id;
      	$studentId = $student+1;
      	if ($studentId < 10) {
     			$id_no = '000'.$studentId;

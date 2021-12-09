@@ -21,3 +21,5 @@ public/images/
 *.png
 *.svg
 *.jpg
+*.rar
+*.sql
