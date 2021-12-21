@@ -4,13 +4,13 @@ $route = Route::current()->getName();
 @endphp
 <aside class="main-sidebar">
     <!-- sidebar-->
-    <section class="sidebar">	
-		
+    <section class="sidebar">
+
         <div class="user-profile">
 			<div class="ulogo">
 				 <a href="index.html">
 				  <!-- logo for regular state and mobile devices -->
-					 <div class="d-flex align-items-center justify-content-center">					 	
+					 <div class="d-flex align-items-center justify-content-center">
 						  <img src="backend/../images/logo-dark.png" alt="">
 						  <h3><b>School</b> Admin</h3>
 					 </div>
@@ -18,13 +18,13 @@ $route = Route::current()->getName();
 			</div>
         </div>
       <!-- sidebar menu-->
-      <ul class="sidebar-menu" data-widget="tree">  
+      <ul class="sidebar-menu" data-widget="tree">
 		<li class="{{ ($route=='dashboard') ? 'active': '' }}">
           <a href="{{route('dashboard')}}">
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>
-        </li>  
+        </li>
 
         @if (Auth::user()->role=='Admin')
         <li class="treeview  {{ ($prefix =='/users') ? 'active': '' }}">
@@ -39,10 +39,10 @@ $route = Route::current()->getName();
             <li><a href="{{route('user.view')}}"><i class="ti-more"></i>View users</a></li>
             <li><a href="{{ route('user.add') }}"><i class="ti-more"></i>Add user</a></li>
           </ul>
-        </li> 
+        </li>
         @endif
 
-		  
+
         <li class="treeview {{ ($prefix =='/profiles')?'active': ''}}">
           <a href="#">
             <i data-feather="mail"></i> <span>Manage profile</span>
@@ -56,7 +56,7 @@ $route = Route::current()->getName();
             <li><a href="{{route('password.view')}}"><i class="ti-more"></i>Change password</a></li>
           </ul>
         </li>
-        
+
 
 
 
@@ -81,7 +81,7 @@ $route = Route::current()->getName();
             <li><a href="{{route('designation.view')}}"><i class="ti-more"></i>Designation</a></li>
           </ul>
         </li>
-  
+
 
 
         <li class="treeview {{ ($prefix =='/students')?'active': ''}}">
@@ -94,18 +94,19 @@ $route = Route::current()->getName();
 
           <ul class="treeview-menu">
             <li><a href="{{route('student.registration.view')}}"><i class="ti-more"></i>Student registration</a></li>
-       
+            <li><a href="{{route('roll.generate.view')}}"><i class="ti-more"></i>Roll generation</a></li>
+
           </ul>
         </li>
-  
 
 
 
 
 
-		 
+
+
         <li class="header nav-small-cap">User Interface</li>
-		  
+
         <li class="treeview">
           <a href="#">
             <i data-feather="grid"></i>
@@ -127,7 +128,7 @@ $route = Route::current()->getName();
         </li>
       </ul>
     </section>
-	
+
 	<div class="sidebar-footer">
 		<!-- item-->
 		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>

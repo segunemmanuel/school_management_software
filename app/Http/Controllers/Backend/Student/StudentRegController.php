@@ -285,4 +285,9 @@ return $pdf->stream('document.pdf');
 }
 
 
+
+public function StudentRollView(){
+
+}
+
 }
