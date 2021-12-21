@@ -91,7 +91,7 @@ Route::get('/student/shift/edit/{id}', [StudentShiftController::class,'EditShift
 Route::post('/student/shift/update/{id}', [StudentShiftController::class,'UpdateShift'])->name('update.student.shift');
 Route::get('/student/shift/delete/{id}', [StudentShiftController::class,'DeleteShift'])->name('student.shift.delete');
 
-// Fee categories 
+// Fee categories
 Route::get('/fee/category/view', [FeeCategoryController::class,'ViewFeeCat'])->name('fee.category.view');
 Route::get('/fee/category/add', [FeeCategoryController::class,'AddFeeCat'])->name('fee.category.add');
 Route::post('/fee/category/store', [FeeCategoryController::class,'StoreFeeCat'])->name('store.fee.category');
@@ -151,7 +151,7 @@ Route::get('/designation/delete/{id}',[DesignationController::class,'DeleteDesig
 });
 
 
- 
+
 Route::prefix('students')->group(function(){
     Route::get('/reg/view',[StudentRegController::class,'ViewStudentReg'])->name('student.registration.view');
     Route::get('/reg/add',[StudentRegController::class,'AddStudentReg'])->name('student.registration.add');
@@ -161,6 +161,7 @@ Route::prefix('students')->group(function(){
     Route::post('/reg/update/{id}',[StudentRegController::class,'StudentRegUpdate'])->name('student.registration.update');
     Route::get('/reg/promote/{student_id}',[StudentRegController::class,'StudentRegPromote'])->name('student.registration.promote');
     Route::post('/reg/promote/save/{student_id}',[StudentRegController::class,'StudentRegPromotion'])->name('promotion.student.registration');
+    Route::get('/reg/details/{student_id}',[StudentRegController::class,'StudentRegDetails'])->name('student.registration.details');
 
 
 
@@ -169,7 +170,5 @@ Route::prefix('students')->group(function(){
 
 
 
-
-    
 });
 

@@ -39,10 +39,10 @@
          <select name="class_id"  class="form-control">
                 <option value="" selected="" disabled="">Select class</option>
                 @foreach ($classes as $class)
-                    
+
                 <option value="{{$class->id}}"   {{ (@class_id==$class->id )? "selected" :"" }} >{{$class->name}}</option>
                 @endforeach
-                 
+
             </select>
          </div>
               </div>
@@ -67,11 +67,11 @@
            <div class="box-body">
                <div class="table-responsive">
                 @if(!@$search )
-                   
+
                  <table id="example1" class="table table-bordered table-striped">
                    <thead>
                        <tr>
-                        <th width="5%">SL</th>  
+                        <th width="5%">SL</th>
                         <th>Name</th>
                         <th width="10%">ID No</th>
                         <th>Roll</th>
@@ -90,34 +90,34 @@
                            <td>{{ $key+1 }}</td>
                            <td>{{ $value['student']['name'] }}</td>
                            <td>{{$value['student']['id_no'] }}</td>
-                           <td>{{$value->roll }}</td>
+                            <td>{{$value->roll }}</td>
                            <td>{{$value['student_year']['name']}}</td>
                            <td>{{$value['student_class']['name']}}</td>
                            <td>
-                            <img src="{{ (!empty($value['student']['image']))? url('upload/student_images/'.$value['student']['image']):url('upload/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
+                            <img src="{{ (!empty($value['student']['image']))? url('upload/student_images/'.$value['student']['image']):url('upload/no_image.jpg') }}" style="width: 60px; width: 60px;">
                                  </td>
                            <td>{{ $value->class_id }}</td>
 
                            <td>
-<a href="{{route('student.registration.edit',$value->student_id) }} " class="btn btn-info">Edit</a>
-<a href="{{route('student.registration.promote', $value->student_id) }}" id="" class="btn btn-danger">Promote</a>
-{{-- <a href="{{route('student.registration.promote', $value->student_id) }}" id="" class="btn btn-danger">Details</a> --}}
+<a href="{{route('student.registration.edit',$value->student_id) }} " class="btn btn-info"><i class="fa fa-edit"></i></a>
+<a href="{{route('student.registration.promote', $value->student_id) }}" id="" class="btn btn-primary"><i class="fa fa-check"></i></a>
+<a target= "_blank" href="{{route('student.registration.details', $value->student_id) }}" id="" class="btn btn-danger"><i class="fa fa-eye"></i></a>
 
                            </td>
-  
+
                        </tr>
                        @endforeach
-                       
+
                        </tbody>
-               
+
                  </table>
-                
+
                  @else
 
                  <table id="example1" class="table table-bordered table-striped">
                   <thead>
                       <tr>
-                       <th width="5%">SL</th>  
+                       <th width="5%">SL</th>
                        <th>Name</th>
                        <th width="10%">ID No</th>
                        <th>Roll</th>
@@ -140,19 +140,20 @@
                           <td>{{$value['student_year']['name']}}</td>
                           <td>{{$value['student_class']['name']}}</td>
                           <td>
-                           <img src="{{ (!empty($value['student']['image']))? url('upload/student_images/'.$value['student']['image']):url('upload/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
+                           <img src="{{ (!empty($value['student']['image']))? url('upload/student_images/'.$value['student']['image']):url('upload/no_image.jpg') }}" style="width: 60px; width: 60px;">
                                 </td>
                           <td>{{ $value->class_id }}</td>
 
                           <td>
-                            <a href="{{route('student.registration.edit', $value->student_id) }}" class="btn btn-info">Edit</a>
-                           <a href="{{route('student.registration.promote', $value->student_id) }}" id="" class="btn btn-danger">Promote</a>
+                            <a href="{{route('student.registration.edit',$value->student_id) }} " class="btn btn-info"><i class="fa fa-edit"></i></a>
+                            <a href="{{route('student.registration.promote', $value->student_id) }}" id="" class="btn btn-primary"><i class="fa fa-check"></i></a>
+                            <a target= "_blank" href="{{route('student.registration.details', $value->student_id) }}" id="" class="btn btn-danger"><i class="fa fa-eye"></i></a>
 
-                          </td>
+                            </td>
 
                       </tr>
                       @endforeach
-                      
+
                       </tbody>
                 </table>
                  @endif
@@ -163,19 +164,19 @@
          </div>
          <!-- /.box -->
 
-  
-         <!-- /.box -->          
+
+         <!-- /.box -->
        </div>
 </div>
 </section>
 
-      
+
           <!-- /.col -->
         </div>
         <!-- /.row -->
       </section>
       <!-- /.content -->
-    
+
     </div>
 </div>
 <!-- /.content-wrapper -->

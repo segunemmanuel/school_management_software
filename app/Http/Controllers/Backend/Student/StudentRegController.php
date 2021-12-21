@@ -6,19 +6,19 @@ use App\Models\AssignStudent;
 use App\Models\User;
 use App\Models\DiscountStudent;
 use Illuminate\Support\Facades\DB;
-
 use App\Models\StudentYear;
 use App\Models\StudentClass;
 use App\Models\StudentGroup;
 use App\Models\StudentShift;
+use PDF;
 
-// use DB;
+// use DB;z
 
 class StudentRegController extends Controller
 {
-  
 
-    
+
+
 public function ViewStudentReg(){
 
     $data['years'] = StudentYear::all();
@@ -72,7 +72,7 @@ DB::transaction(function() use($request){
     			$id_no = '0'.$studentId;
     		}
 
-    	} // end else 
+    	} // end else
 
     	$final_id_no = $checkYear.$id_no;
     	$user = new User();
@@ -164,8 +164,8 @@ public function StudentRegUpdate(Request $request, $student_id){
         $user->gender=$request->gender;
         $user->religion=$request->religion;
         $user->dob=$request->input('dob');
-        
-        
+
+
         if($request->file('image')){
             $file=$request->file('image');
             @unlink(public_path('upload/student_images/'.$user->image));
@@ -174,21 +174,21 @@ public function StudentRegUpdate(Request $request, $student_id){
             $user['image']=$filename;
         }
         $user->save();
-        
-        // Assigning student ID using 
+
+        // Assigning student ID using
         $assign_student = AssignStudent::where('id',$request->id)->where('student_id',$student_id)->first();
         $assign_student->year_id=$request->year_id;
         $assign_student->class_id=$request->class_id;
         $assign_student->group_id=$request->group_id;
         $assign_student->shift_id=$request->shift_id;
         $assign_student->save();
-        
-        
+
+
         // Assigning discounts into discounts DB;
         $discount_student = DiscountStudent::where('assign_student_id',$request->id)->first();
         $discount_student->discount=$request->discount;
         $discount_student->save();
-        
+
     });
 
 
@@ -199,7 +199,7 @@ public function StudentRegUpdate(Request $request, $student_id){
         );
 
     	return redirect()->route('student.registration.view')->with($notification);
-        
+
     }
 
 
@@ -234,8 +234,8 @@ public function StudentRegUpdate(Request $request, $student_id){
             $user->gender=$request->gender;
             $user->religion=$request->religion;
             $user->dob=$request->input('dob');
-            
-            
+
+
             if($request->file('image')){
                 $file=$request->file('image');
                 @unlink(public_path('upload/student_images/'.$user->image));
@@ -244,8 +244,8 @@ public function StudentRegUpdate(Request $request, $student_id){
                 $user['image']=$filename;
             }
             $user->save();
-            
-            // Assigning student ID using 
+
+            // Assigning student ID using
             $assign_student = new AssignStudent();
 $assign_student->student_id=$student_id;
             $assign_student->year_id=$request->year_id;
@@ -253,8 +253,8 @@ $assign_student->student_id=$student_id;
             $assign_student->group_id=$request->group_id;
             $assign_student->shift_id=$request->shift_id;
             $assign_student->save();
-            
-            
+
+
             // Assigning discounts into discounts DB;
             $discount_student = new DiscountStudent();
 
@@ -262,19 +262,27 @@ $assign_student->student_id=$student_id;
             $discount_student->fee_category_id='1';
             $discount_student->discount=$request->discount;
             $discount_student->save();
-            
+
         });
-    
-    
-    
+
+
+
             $notification = array(
                 'message' => 'Student Promotion updated Successfully',
                 'alert-type' => 'success'
             );
-    
+
             return redirect()->route('student.registration.view')->with($notification);
-            
+
     }
+
+
+public function StudentRegDetails($student_id){
+$data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id',$student_id)->first();
+$pdf = PDF::loadView('backend.student.student_reg.student_details_pdf', $data);
+$pdf->SetProtection(['copy', 'print'], '', 'pass');
+return $pdf->stream('document.pdf');
+}
 
 
 }
