@@ -9,11 +9,10 @@
   <div class="col-12">
   <div class="box bb-3 border-warning">
     <div class="box-header">
-    <h4 class="box-title">Student <strong>Roll generator </strong></h4>
+    <h4 class="box-title">Student <strong>Registration fee</strong></h4>
     </div>
     <div class="box-body">
-  <form action="{{ route('roll.generate.store') }}" method="GET">
-@csrf
+
 <div class="row">
   <div class="col-md-4">
     <div class="form-group">
@@ -49,25 +48,37 @@
         <a id="search" class="btn btn-primary" name="search">Search</a>
       </div>
 </div>
-<div class="row d-none" id="roll-generate">
+{{-- Registration fee table --}}
+
+<div class="row">
 <div class="col-md-12">
-    <table class="table table-bordered table-striped" style="width:100%">
+
+<div id="DocumentResults">
+    <script id="dcoument-template" type="text/x-handlebars-template" >
+        <table class="table table-bordered table-striped" style="width: 100%">
         <thead>
             <tr>
-                <th>ID No</th>
-                <th>Student name</th>
-                <th>Father name</th>
-                <th>Gender</th>
-                <th>Roll</th>
+                @{{{thsource}}}
             </tr>
         </thead>
-<tbody id="roll-generate-tr">
-</tbody>
-    </table>
+        <tbody>
+            @{{#each this}}
+            <tr>
+                @{{{tdsource}}}
+                </tr>
+            @{{/each}}
+        </tbody>
+        </table>
+    </script>
+</div>
+
+
+
+
+
 </div>
 </div>
-<input type="submit" class="btn btn-info" value="Roll Generator">
-</form>
+
     </div>
   </div>
 </div>

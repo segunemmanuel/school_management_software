@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Student\StudentRegController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
+use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
@@ -169,8 +170,11 @@ Route::get('/roll/generate/view', [StudentRollController::class,'StudentRollView
 
 
 Route::get('/roll/getstudents', [StudentRollController::class,'GetStudents'])->name('student.registration.getstudents');
+Route::get('/roll/generate', [StudentRollController::class,'StudentRollStore'])->name('roll.generate.store');
 
 
+// Registartion fee routes
+Route::get('reg/fee/view', [RegistrationFeeController::class,'RegFeeView'])->name('registration.fee.view');
 
 
 });
