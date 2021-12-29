@@ -12,9 +12,11 @@ use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Student\StudentRegController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
+use App\Http\Controllers\Backend\Student\MonthlyFeeController;
 use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\UserController;
+
 use Illuminate\Support\Facades\Route;
 // StudentYearController
 
@@ -177,6 +179,10 @@ Route::get('/roll/generate', [StudentRollController::class,'StudentRollStore'])-
 Route::get('reg/fee/view', [RegistrationFeeController::class,'RegFeeView'])->name('registration.fee.view');
 Route::get('reg/fee/classwisedata', [RegistrationFeeController::class,'RegFeeClassData'])->name('student.registration.fee.classwise.get');
 Route::get('reg/fee/payslip', [RegistrationFeeController::class,'RegFeePaySlip'])->name('student.registration.fee.payslip');
+
+
+// Monthly fee view
+Route::get('monthly/fee/view', [MonthlyFeeController::class,'Monthview'])->name('month.fee.view');
 
 
 
