@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\StudentYear;
 use App\Models\StudentClass;
 use App\Models\StudentGroup;
+use niklasravnsborg\LaravelPdf\Facades\Pdf as FacadesPdf;
+use niklasravnsborg\LaravelPdf\Pdf as LaravelPdfPdf;
+
 use App\Models\StudentShift;
 use PDF;
 class RegistrationFeeController extends Controller
@@ -71,7 +74,18 @@ return view('backend.student.registration_fee.registration_fee_view',$data);
 
    }// end method
 
-   public function RegFeePaySlip(){
+   public function RegFeePaySlip(Request $request){
+
+	$student_id = $request->student_id;
+    	$class_id = $request->class_id;
+
+    	$allStudent['details'] = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->where('class_id',$class_id)->first();
+
+    $pdf = PDF::loadView('backend.student.registration_fee.registration_fee_pdf', $allStudent);
+	$pdf->SetProtection(['copy', 'print'], '', 'pass');
+	return $pdf->stream('document.pdf');
+
+    // return view('backend.student.registration_fee.registration_fee_view',$data);
 
    }
 }
