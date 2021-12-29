@@ -175,6 +175,10 @@ Route::get('/roll/generate', [StudentRollController::class,'StudentRollStore'])-
 
 // Registartion fee routes
 Route::get('reg/fee/view', [RegistrationFeeController::class,'RegFeeView'])->name('registration.fee.view');
+Route::get('reg/fee/classwisedata', [RegistrationFeeController::class,'RegFeeClassData'])->name('student.registration.fee.classwise.get');
+Route::get('reg/fee/payslip', [RegistrationFeeController::class,'RegFeePaySlip'])->name('student.registration.fee.payslip');
+
+
 
 
 });
