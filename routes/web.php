@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -199,6 +200,76 @@ Route::get('exam/fee/view', [ExamFeeController::class,'ExamFeeView'])->name('exa
 Route::get('exam/fee/classwisedata', [ExamFeeController::class,'ExamFeeClassData'])->name('student.exam.fee.classwise.get');
 Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'MonthlyFeePayslip'])->name('student.monthly.fee.payslip');
 });
+
+
+
+
+
+
+
+
+Route::prefix('employees')->group(function(){
+    Route::get('/view',[EmployeeRegController::class,'EmployeeRegView'])->name('employee.registration.view');
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
