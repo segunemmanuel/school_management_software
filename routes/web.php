@@ -184,8 +184,10 @@ Route::get('reg/fee/payslip', [RegistrationFeeController::class,'RegFeePaySlip']
 // Monthly fee view
 Route::get('monthly/fee/view', [MonthlyFeeController::class,'Monthview'])->name('month.fee.view');
 
-
-
+Route::get('monthly/fee/classwisedata', [RegistrationFeeController::class,'MonthlyFeeClassData'])->name('student.monthly.fee.classwise.get');
+Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'MonthlyFeePayslip'])->name('student.monthly.fee.payslip');
 
 });
+
+
 
