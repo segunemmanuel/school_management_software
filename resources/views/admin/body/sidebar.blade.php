@@ -97,6 +97,8 @@ $route = Route::current()->getName();
             <li><a href="{{route('roll.generate.view')}}"><i class="ti-more"></i>Roll generation</a></li>
             <li><a href="{{route('registration.fee.view')}}"><i class="ti-more"></i>Registration fee</a></li>
             <li><a href="{{route('month.fee.view')}}"><i class="ti-more"></i>Monthly fee</a></li>
+            <li><a href="{{route('exam.fee.view')}}"><i class="ti-more"></i>Exam fee</a></li>
+
 
 
           </ul>
