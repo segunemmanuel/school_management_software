@@ -31,8 +31,12 @@ return view('admin.index');
 // Admin controllers
 Route::get('/admin/logout',[AdminController::class,'Logout'])->name('admin.logout');
 
-// User management routes
+
+Route::group(['middleware'=>'auth'],function(){
+
 // Group routes
+
+
 Route::prefix('users')->group(function(){
 Route::get('/view',[UserController::class,'UserView'])->name('user.view');
 Route::get('/add',[UserController::class,'UserAdd'])->name('user.add');
@@ -197,4 +201,7 @@ Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'MonthlyFeePays
 });
 
 
+
+// End middleware
+});
 
