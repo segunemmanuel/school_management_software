@@ -209,10 +209,8 @@ Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'MonthlyFeePays
 
 
 Route::prefix('employees')->group(function(){
-    Route::get('/view',[EmployeeRegController::class,'EmployeeRegView'])->name('employee.registration.view');
-
-
-
+    Route::get('reg/employee/view',[EmployeeRegController::class,'EmployeeRegView'])->name('employee.registration.view');
+    Route::get('reg/employee/add',[EmployeeRegController::class,'EmployeeRegAdd'])->name('employee.registration.add');
 
     });
 

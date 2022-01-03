@@ -28,4 +28,13 @@ class EmployeeRegController extends Controller
     	return view('backend.employee.employee_reg.employee_view',$data);
 
     }
+
+    public function EmployeeRegAdd(){
+
+        $data['designation']=Designation::all();
+    	return view('backend.employee.employee_reg.employee_add', $data);
+    }
+
+
+
 }

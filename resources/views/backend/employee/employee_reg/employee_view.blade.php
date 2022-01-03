@@ -18,7 +18,7 @@
 			 <div class="box">
 				<div class="box-header with-border">
 				  <h3 class="box-title">Employee List</h3>
-	{{-- <a href="{{ route('employee.registration.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Employee</a> --}}
+	<a href="{{ route('employee.registration.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Employee</a>
 
 				</div>
 				<!-- /.box-header -->
