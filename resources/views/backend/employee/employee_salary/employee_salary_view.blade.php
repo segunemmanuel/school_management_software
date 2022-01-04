@@ -17,8 +17,8 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Employee List</h3>
-	<a href="{{ route('employee.registration.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Employee</a>
+				  <h3 class="box-title">Employee salary list</h3>
+	<a href="{{ route('employee.registration.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Employee salary </a>
 
 				</div>
 				<!-- /.box-header -->
@@ -34,9 +34,6 @@
 				<th>Gender</th>
 				<th>Join Date</th>
 				<th>Salary</th>
-				@if(Auth::user()->role == "Admin")
-				<th>Code</th>
-				 @endif
 				<th width="25%">Action</th>
 
 			</tr>
@@ -51,10 +48,7 @@
 				<td> {{ $employee->gender }}</td>
 				<td> {{ $employee->join_date }}</td>
 				<td> {{ $employee->salary }}</td>
-				@if(Auth::user()->role == "Admin")
-				<td> {{ $employee->code }}</td>
-				 @endif
-				<td>
+                <td>
 <a href="{{ route('employee.registration.edit',$employee->id) }}" class="btn btn-info">Edit</a>
  <a target="_blank" href="{{ route('employee.registration.details',$employee->id) }}" class="btn btn-danger">Details</a>
 				</td>

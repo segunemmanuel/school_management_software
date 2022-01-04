@@ -148,7 +148,6 @@ public function EmployeeRegUpdate(Request $request, $id){
      $user->save();
 
 
-
     $notification = array(
         'message' => 'Employee Registration Updated Successfully',
         'alert-type' => 'success'
@@ -159,6 +158,13 @@ public function EmployeeRegUpdate(Request $request, $id){
 }
 
 
+public function EmployeeRegDetails($id){
+    $data['details'] = User::find($id);
+    $pdf = PDF::loadView('backend.employee.employee_reg.employee_details_pdf', $data);
+	$pdf->SetProtection(['copy', 'print'], '', 'pass');
+	return $pdf->stream('document.pdf');
+
+    }
 
 // end of class
 }
