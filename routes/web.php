@@ -206,12 +206,19 @@ Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'MonthlyFeePays
 
 
 
-
+// Employee regisration routes
 
 Route::prefix('employees')->group(function(){
     Route::get('reg/employee/view',[EmployeeRegController::class,'EmployeeRegView'])->name('employee.registration.view');
     Route::get('reg/employee/add',[EmployeeRegController::class,'EmployeeRegAdd'])->name('employee.registration.add');
     Route::post('reg/employee/store',[EmployeeRegController::class,'EmployeeRegStore'])->name('store.employee.registration');
+
+    Route::get('reg/employee/edit/{id}',[EmployeeRegController::class,'EmployeeRegEdit'])->name('employee.registration.edit');
+
+    Route::post('reg/employee/update/{id}',[EmployeeRegController::class,'EmployeeRegUpdate'])->name('update.employee.registration');
+
+
+
 
 
     });
