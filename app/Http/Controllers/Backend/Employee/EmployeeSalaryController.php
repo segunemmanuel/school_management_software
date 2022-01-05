@@ -33,4 +33,23 @@ class EmployeeSalaryController extends Controller
 
     }
 
+
+
+    public function SalaryIncrement($id){
+        $data['editData']=User::find($id);
+    	return view('backend.employee.employee_salary.employee_salary_increment', $data);
+
+
+    }
+
+    public function SalaryUpdate(Request $request,$id){
+
+        $user=User::find($id);
+
+        $previous_salary=$user->salary;
+
+
+        return ;
+    }
+
 }

@@ -225,6 +225,13 @@ Route::prefix('employees')->group(function(){
 
 // Salary
 Route::get('salary/employee/view', [EmployeeSalaryController::class,'SalaryView'])->name('employee.salary.view');
+Route::get('salary/employee/increment/{id}',[EmployeeSalaryController::class,'SalaryIncrement'])->name('employee.salary.increment');
+Route::post('salary/employee/store/{id}',[EmployeeSalaryController::class,'SalaryUpdate'])->name('update.increment.store');
+
+
+
+
+update.increment.store
 
 
 
