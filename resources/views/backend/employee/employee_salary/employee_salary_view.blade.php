@@ -52,7 +52,7 @@
 
                     <a title="Increment" href="{{ route('employee.salary.increment',$value->id) }}" class="btn btn-info"> <i class="fa fa-plus-circle"></i></a>
 
- <a title="details" target="_blank" href="{{ route('employee.registration.details',$value->id) }}" class="btn btn-danger">
+ <a title="details" target="_blank" href="{{ route('employee.salary.details',$value->id) }}" class="btn btn-danger">
     <i class="fa fa-eye"></i>
 
 </a>

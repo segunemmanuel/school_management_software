@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\ProfileController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 // StudentYearController
 
@@ -226,12 +228,16 @@ Route::prefix('employees')->group(function(){
 // Salary
 Route::get('salary/employee/view', [EmployeeSalaryController::class,'SalaryView'])->name('employee.salary.view');
 Route::get('salary/employee/increment/{id}',[EmployeeSalaryController::class,'SalaryIncrement'])->name('employee.salary.increment');
-Route::post('salary/employee/store/{id}',[EmployeeSalaryController::class,'SalaryUpdate'])->name('update.increment.store');
+Route::post('salary/employee/store/{id}',[EmployeeSalaryController::class,'SalaryStore'])->name('update.increment.store');
+Route::get('salary/employee/details/{id}',[EmployeeSalaryController::class,'SalaryDetails'])->name('employee.salary.details');
 
 
 
+// Employee leave
+Route::get('salary/employee/leave/view',[EmployeeLeaveController::class,'LeaveView'])->name('employee.leave.view');
 
-update.increment.store
+
+
 
 
 
