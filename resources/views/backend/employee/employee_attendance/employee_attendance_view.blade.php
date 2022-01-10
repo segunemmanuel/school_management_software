@@ -18,7 +18,7 @@
 			 <div class="box">
 				<div class="box-header with-border">
 				  <h3 class="box-title">Employee Attendance List </h3>
-	{{-- <a href="{{ route('employee.attendance.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Attendance </a>			   --}}
+	<a href="{{ route('employee.attendance.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Attendance </a>			  
 
 				</div>
 				<!-- /.box-header -->

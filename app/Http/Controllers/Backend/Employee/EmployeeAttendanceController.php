@@ -30,4 +30,10 @@ class EmployeeAttendanceController extends Controller
     	// $data['allData'] = EmployeeAttendance::orderBy('id','DESC')->get();
     	return view('backend.employee.employee_attendance.employee_attendance_view',$data);
     }
+
+
+    public function AddAttendance(){
+        $data['employees'] = User::where('usertype','employee')->get();
+    	return view('backend.employee.employee_attendance.employee_attendance_add',$data);
+    }
 }

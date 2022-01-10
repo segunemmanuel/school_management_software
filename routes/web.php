@@ -248,6 +248,8 @@ Route::post('leave/employee/update/{id}', [EmployeeLeaveController::class, 'Leav
 // Emplotyee attenaance
 
 Route::get('employee/attendance/view',[EmployeeAttendanceController::class,'AttendanceView'])->name('employee.attendance.view');
+Route::get('employee/attendance/add',[EmployeeAttendanceController::class,'AddAttendance'])->name('employee.attendance.add');
+
 
 
 
