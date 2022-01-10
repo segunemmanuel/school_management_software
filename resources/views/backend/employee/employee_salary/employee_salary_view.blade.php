@@ -40,7 +40,7 @@
 		</thead>
 		<tbody>
 			@foreach($allData as $key => $value )
-			<tr>
+            <tr>
 				<td>{{ $key+1 }}</td>
 				<td> {{ $value->name }}</td>
 				<td> {{ $value->id_no }}</td>
