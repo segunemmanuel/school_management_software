@@ -236,6 +236,11 @@ Route::get('salary/employee/details/{id}',[EmployeeSalaryController::class,'Sala
 // Employee leave
 Route::get('salary/employee/leave/view',[EmployeeLeaveController::class,'LeaveView'])->name('employee.leave.view');
 
+Route::get('leave/employee/add', [EmployeeLeaveController::class, 'LeaveAdd'])->name('employee.leave.add');
+Route::post('leave/employee/store', [EmployeeLeaveController::class, 'LeaveStore'])->name('store.employee.leave');
+
+
+
 
 
 
