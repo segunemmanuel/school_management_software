@@ -1,5 +1,8 @@
 <?php
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Account\AccountSalaryController;
+use App\Http\Controllers\Backend\Account\OtherCostController;
+use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
@@ -304,7 +307,46 @@ Route::prefix('marks')->group(function(){
 
 
 
-    });
+
+
+
+
+
+/// Account Management Routes
+Route::prefix('accounts')->group(function(){
+
+    Route::get('student/fee/view', [StudentFeeController::class, 'StudentFeeView'])->name('student.fee.view');
+
+    Route::get('student/fee/add', [StudentFeeController::class, 'StudentFeeAdd'])->name('student.fee.add');
+
+    Route::get('student/fee/getstudent', [StudentFeeController::class, 'StudentFeeGetStudent'])->name('account.fee.getstudent');
+
+    Route::post('student/fee/store', [StudentFeeController::class, 'StudentFeeStore'])->name('account.fee.store');
+
+    // Employee Salary Routes
+    Route::get('account/salary/view', [AccountSalaryController::class, 'AccountSalaryView'])->name('account.salary.view');
+
+    Route::get('account/salary/add', [AccountSalaryController::class, 'AccountSalaryAdd'])->name('account.salary.add');
+
+    Route::get('account/salary/getemployee', [AccountSalaryController::class, 'AccountSalaryGetEmployee'])->name('account.salary.getemployee');
+
+    Route::post('account/salary/store', [AccountSalaryController::class, 'AccountSalaryStore'])->name('account.salary.store');
+
+
+
+    // Other Cost Rotues
+
+Route::get('other/cost/view', [OtherCostController::class, 'OtherCostView'])->name('other.cost.view');
+
+Route::get('other/cost/add', [OtherCostController::class, 'OtherCostAdd'])->name('other.cost.add');
+
+Route::post('other/cost/store', [OtherCostController::class, 'OtherCostStore'])->name('store.other.cost');
+
+Route::get('other/cost/edit/{id}', [OtherCostController::class, 'OtherCostEdit'])->name('edit.other.cost');
+
+Route::post('other/cost/update/{id}', [OtherCostController::class, 'OtherCostUpdate'])->name('update.other.cost');
+
+});
 
 
 
@@ -317,18 +359,7 @@ Route::prefix('marks')->group(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
