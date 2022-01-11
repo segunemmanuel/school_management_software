@@ -249,6 +249,11 @@ Route::post('leave/employee/update/{id}', [EmployeeLeaveController::class, 'Leav
 
 Route::get('employee/attendance/view',[EmployeeAttendanceController::class,'AttendanceView'])->name('employee.attendance.view');
 Route::get('employee/attendance/add',[EmployeeAttendanceController::class,'AddAttendance'])->name('employee.attendance.add');
+Route::post('attendance/employee/store', [EmployeeAttendanceController::class, 'AttendanceStore'])->name('store.employee.attendance');
+Route::get('attendance/employee/edit/{date}', [EmployeeAttendanceController::class, 'AttendanceEdit'])->name('employee.attendance.edit');
+Route::get('attendance/employee/details/{date}', [EmployeeAttendanceController::class, 'AttendanceDetails'])->name('employee.attendance.details');
+
+
 
 
 

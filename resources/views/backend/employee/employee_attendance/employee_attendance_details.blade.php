@@ -17,33 +17,33 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Employee Attendance List </h3>
-	<a href="{{ route('employee.attendance.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Attendance </a>
+				  <h3 class="box-title">Employee Attendance Details </h3>
 
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-		 <table id="example1" class="table table-bordered table-striped">
+		<table  class="table table-bordered table-striped">
 						<thead>
 			<tr>
 				<th width="5%">SL</th>
+				<th>Name</th>
+				<th>ID No </th>
 				<th>Date </th>
-				<th width="20%">Action</th>
+				<th>Attend Status</th>
+
 
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($allData as $key => $value )
+			@foreach($details as $key => $value )
 			<tr>
 				<td>{{ $key+1 }}</td>
+				<td> {{ $value['user']['name'] }}</td>
+				<td> {{ $value['user']['id_no'] }}</td>
 				<td> {{ date('d-m-Y', strtotime($value->date)) }}</td>
+				<td> {{ $value->attend_status }}</td>
 
-				<td>
-<a href="{{ route('employee.attendance.edit',$value->date) }}" class="btn btn-info">Edit</a>
-<a href="{{ route('employee.attendance.details',$value->date) }}" class="btn btn-danger">Details</a>
-
-				</td>
 
 			</tr>
 			@endforeach
