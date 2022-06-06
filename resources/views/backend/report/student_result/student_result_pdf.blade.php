@@ -36,38 +36,38 @@
   <img src="{{ public_path() . $image_path }}" width="200" height="100">
 
     </h2></td>
-    <td><h2>Easy School ERP</h2>
+    <td><h2> School ERP</h2>
 <p>School Address</p>
-<p>Phone : 343434343434</p>
-<p>Email : support@easylerningbd.com</p>
+<p>Phone :12309876</p>
+<p>Email : support@gmail.com</p>
 <p> <b>Student Result Report </b> </p>
 
-    </td> 
+    </td>
   </tr>
-  
-   
+
+
 </table>
  <br> <br>
- <strong>Result of : </strong> {{ $allData['0']['exam_type']['name'] }} 
+ <strong>Result of : </strong> {{ $allData['0']['exam_type']['name'] }}
  <br> <br>
 <table id="customers">
-   
-  <tr>    
+
+  <tr>
     <td width="50%"> <h4>Year / Session : </h4> {{ $allData['0']['year']['name'] }} </td>
     <td width="50%"> <h4> Class :  </h4>{{ $allData['0']['student_class']['name'] }} </td>
   </tr>
 
-  
-   
-   
+
+
+
 </table>
 <br> <br>
   <i style="font-size: 10px; float: right;">Print Data : {{ date("d M Y") }}</i>
 
 <hr style="border: dashed 2px; width: 95%; color: #000000; margin-bottom: 50px">
 
- 
- 
+
+
 
 </body>
 </html>

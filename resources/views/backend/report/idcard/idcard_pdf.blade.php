@@ -36,34 +36,34 @@
   <img src="{{ public_path() . $image_path }}" width="200" height="100">
 
     </h2></td>
-    <td><h2>Easy School ERP</h2>
+    <td><h2>School ERP</h2>
 <p>School Address</p>
 <p>Phone : 343434343434</p>
-<p>Email : support@easylerningbd.com</p>
+<p>Email : admin@gmail.com</p>
 <p> <b>Student ID Card </b> </p>
 
-    </td> 
+    </td>
   </tr>
-  
-   
+
+
 </table>
- 
+
  @foreach($allData as $value)
 <table id="customers">
-   
+
  <tr>
    <td>IMAGE</td>
    <td>Easy School </td>
    <td> Student Id Card</td>
 
- </tr>  
+ </tr>
 
  <tr>
    <td>Name : {{ $value['student']['name'] }}</td>
    <td>Session : {{ $value['student_year']['name'] }}</td>
    <td> Class : {{ $value['student_class']['name'] }}</td>
 
- </tr> 
+ </tr>
 
 
  <tr>
@@ -71,10 +71,10 @@
    <td>ID No : {{ $value['student']['id_no'] }}</td>
    <td> Mobile:{{ $value['student']['mobile'] }} </td>
 
- </tr> 
+ </tr>
 
 
-   
+
 </table>
 @endforeach
 
@@ -83,8 +83,8 @@
 
 <hr style="border: dashed 2px; width: 95%; color: #000000; margin-bottom: 50px">
 
- 
- 
+
+
 
 </body>
 </html>

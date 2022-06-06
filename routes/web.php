@@ -31,7 +31,7 @@ use App\Http\Controllers\Backend\Student\MonthlyFeeController;
 use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\UserController;
-
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
@@ -42,7 +42,11 @@ return view('auth.login');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-return view('admin.index');
+$data['users']=User::all();
+$data['teachers']=User::where('usertype','employee')->get();
+$data['admin']=User::where('usertype','Admin')->get();
+
+return view('admin.index',$data);
 })->name('dashboard');
 
 // Admin controllers

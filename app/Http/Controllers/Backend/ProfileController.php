@@ -39,9 +39,9 @@ class ProfileController extends Controller
         $data->usertype=$request->usertype;
         $data->address=$request->address;
         $data->image=$request->image;
-        
+
         // inserting images
-        
+
         if($request->file('image')){
             $file=$request->file('image');
             @unlink(public_path('upload/user_images/'. $data->image));
@@ -54,8 +54,8 @@ class ProfileController extends Controller
         $notification=[
             'message'=>'User profile updated deleted successfully',
             'alert-type'=>'success'
-        
-        
+
+
         ];
         return redirect()->route('profile.view')->with($notification);
     }
@@ -74,7 +74,7 @@ class ProfileController extends Controller
             ]);
             // Access old password
             $hashedPassword=Auth::user()->password;
-            
+
             // Check if old password is hashed and on form
             if(Hash::check($request->oldpassword, $hashedPassword)){
                 // Find user id

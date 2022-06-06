@@ -29,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'salary'
     ];
 
     /**
@@ -64,5 +65,12 @@ class User extends Authenticatable
 
     public function designation(){
         return $this->belongsTo(Designation::class,'designation_id','id');
+    }
+
+// Accessor to show salary
+    public function getNameAttribute($salary){
+    return $salary;
+
+        // return  $salary;
     }
 }

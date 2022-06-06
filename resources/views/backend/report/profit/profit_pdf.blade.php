@@ -36,30 +36,30 @@
   <img src="{{ public_path() . $image_path }}" width="200" height="100">
 
     </h2></td>
-    <td><h2>Easy School ERP</h2>
+    <td><h2> School ERP</h2>
 <p>School Address</p>
-<p>Phone : 343434343434</p>
-<p>Email : support@easylerningbd.com</p>
+<p>Phone :098765</p>
+<p>Email : admin@gmail.com</p>
 <p> <b> Monthly and Yearly Profit </b> </p>
 
-    </td> 
+    </td>
   </tr>
-  
-   
+
+
 </table>
 
-@php 
- 
+@php
+
  $student_fee = App\Models\AccountStudentFee::whereBetween('date',[$start_date,$end_date])->sum('amount');
 
-      $other_cost = App\Models\AccountOtherCost::whereBetween('date',[$sdate,$edate])->sum('amount'); 
+      $other_cost = App\Models\AccountOtherCost::whereBetween('date',[$sdate,$edate])->sum('amount');
 
       $emp_salary = App\Models\AccountEmployeeSalary::whereBetween('date',[$start_date,$end_date])->sum('amount');
 
       $total_cost = $other_cost+$emp_salary;
-      $profit = $student_fee-$total_cost; 
-  
-@endphp 
+      $profit = $student_fee-$total_cost;
+
+@endphp
 
 <table id="customers">
   <tr>
@@ -71,44 +71,44 @@
   <tr>
     <td width="50%"><h4>Purpose</h4></td>
     <td width="50%"><h4>Amount</h4></td>
-     
+
   </tr>
   <tr>
     <td>Student Fee </td>
     <td> {{ $student_fee }}</td>
-    
+
   </tr>
 
     <tr>
     <td>Employee Salary </td>
     <td> {{ $emp_salary }} </td>
-     
+
   </tr>
 
   <tr>
     <td>Other Cost </td>
     <td> {{ $other_cost }} </td>
-     
+
   </tr>
   <tr>
     <td>Total Cost</td>
     <td> {{ $total_cost }} </td>
-   
+
   </tr>
 
   <tr>
     <td>Profit </td>
     <td>{{ $profit }}</td>
-   
+
   </tr>
-    
-   
+
+
 </table>
 <br> <br>
   <i style="font-size: 10px; float: right;">Print Data : {{ date("d M Y") }}</i>
 
 <hr style="border: dashed 2px; width: 95%; color: #000000; margin-bottom: 50px">
- 
+
 
 </body>
 </html>
