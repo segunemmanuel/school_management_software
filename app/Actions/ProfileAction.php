@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Hash;
 class ProfileAction{
 use AsAction;
 
+public function handle(){
 
+}
 
 
 
