@@ -75,7 +75,7 @@ class ProfileController extends Controller
             // Access old password
             $hashedPassword=Auth::user()->password;
 
-            // Check if old password is hashed and on form
+            // Check if old password is hashed and on foreachm
             if(Hash::check($request->oldpassword, $hashedPassword)){
                 // Find user id
                 $user=User::find(Auth::id());
@@ -93,6 +93,12 @@ class ProfileController extends Controller
             }
 
 
+    }
+
+
+    public function blank(Request $request)
+    {
+        return $this->request->all()
     }
 }
 
